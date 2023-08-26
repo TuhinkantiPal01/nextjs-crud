@@ -5,12 +5,12 @@ import { HiPencilAlt } from "react-icons/hi";
 import DeleteTopic from "./DeleteTopic";
 
 const TopicList = async () => {
-  const { topics } = await useTopics();
-  console.log(topics);
+  const topics  = await useTopics();
+  
 
   return (
     <div>
-      {topics?.map((topic) => (
+      {topics?.topics.map((topic) => (
         <div key={topic?._id} className="flex justify-between px-4 py-5 bg-teal-300 mt-10">
           <div>
             <h2>{topic?.title}</h2>
