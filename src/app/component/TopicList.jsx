@@ -1,11 +1,13 @@
 import useTopics from "@/Hooks/getTopics";
 import Link from "next/link";
 import React from "react";
-import { HiOutlineTrash, HiPencilAlt } from "react-icons/hi";
+import { HiPencilAlt } from "react-icons/hi";
+import DeleteTopic from "./DeleteTopic";
 
 const TopicList = async () => {
   const { topics } = await useTopics();
-  console.log(topics);
+  // console.log(topics);
+
   return (
     <div>
       {topics?.map((topic) => (
@@ -16,10 +18,8 @@ const TopicList = async () => {
             <h1>{topic._id}</h1>
           </div>
           <div className="flex items-center gap-x-5">
-            <button>
-              <HiOutlineTrash size={25} color="#F24C3D" />
-            </button>
-            <Link href={"/editTopic/123"}>
+            <DeleteTopic id={topic._id}/>
+            <Link href={`/editTopic/${topic?._id}`}>
               <HiPencilAlt size={25} color="#313866" />
             </Link>
           </div>

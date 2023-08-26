@@ -1,45 +1,45 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 
-
 const AddTopicPage = () => {
-  
-  
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  console.log(title, description);
+  // console.log(title, description);
 
-  const addTopicHandler = (e) => {
+  const router = useRouter()
+
+  const addTopicHandler = async (e) => {
     e.preventDefault();
     const newTopic = {
       title,
       description,
     };
 
-    fetch("http://localhost:3000/api/topics", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newTopic),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        if (data.message === "Topic Created") {
-          setTitle("");
-          setDescription("");
-
-          Swal.fire({
-            icon: 'success',
-            title: 'Topic Created',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }
+    try {
+      const res = await fetch("http://localhost:3000/api/topics", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newTopic),
       });
+      if (res.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Topic Created",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        router.push("/");
+      } else {
+        throw new Error("Failed to Fetch");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
