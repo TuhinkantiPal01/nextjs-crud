@@ -20,11 +20,11 @@ const getTopicById = async(id) => {
 
 const EditTopicPage =async({params}) => {
   const {id} = params;
-  // console.log(`"id":${id}`);
+  console.log(`"id":${id}`);
 
   const topic = await getTopicById(id);
-  // console.log(topic.topic);
-  const {title,description} = topic.topic;
+  console.log(topic.topic);
+  const {title,description} = topic?.topic;
   return (
     <div className="bg-emerald-400 px-4 py-5">
       <h1 className="text-center mb-4 text-3xl">Specific Item Edit Here</h1>

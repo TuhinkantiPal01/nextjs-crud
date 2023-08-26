@@ -36,19 +36,19 @@ const EditTopic = ({ id, title, description }) => {
     <form
       action=""
       className="flex flex-col gap-y-4"
-      // onSubmit={handleEdit}
+      onSubmit={handleEdit}
     >
       <input
-        // onChange={(e) => setNewTitle(e.target.value)}
-        // value={newTitle}
-        // defaultValue={title}
+        onChange={(e) => setNewTitle(e.target.value)}
+        value={newTitle}
+        defaultValue={title}
         type="text"
         placeholder="Topic Title"
         className="px-2 py-3 "
       />
       <input
-        // onChange={(e) => setNewDescription(e.target.value)}
-        // value={newDescription}
+        onChange={(e) => setNewDescription(e.target.value)}
+        value={newDescription}
         type="text"
         placeholder="Topic Desc"
         className="px-2 py-3"
