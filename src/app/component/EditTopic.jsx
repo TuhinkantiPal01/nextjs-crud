@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const EditTopic = ({id, title, description}) => {
+const EditTopic = ({ id, title, description }) => {
   console.log(title);
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
@@ -33,18 +33,22 @@ const EditTopic = ({id, title, description}) => {
   };
 
   return (
-    <form action="" className="flex flex-col gap-y-4" onSubmit={handleEdit}>
+    <form
+      action=""
+      className="flex flex-col gap-y-4"
+      // onSubmit={handleEdit}
+    >
       <input
-        onChange={(e) => setNewTitle(e.target.value)}
-        value={newTitle}
-        defaultValue={title}
+        // onChange={(e) => setNewTitle(e.target.value)}
+        // value={newTitle}
+        // defaultValue={title}
         type="text"
         placeholder="Topic Title"
         className="px-2 py-3 "
       />
       <input
-        onChange={(e) => setNewDescription(e.target.value)}
-        value={newDescription}
+        // onChange={(e) => setNewDescription(e.target.value)}
+        // value={newDescription}
         type="text"
         placeholder="Topic Desc"
         className="px-2 py-3"
