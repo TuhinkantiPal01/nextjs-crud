@@ -24,7 +24,7 @@ const DeleteTopic = ({ id }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+          const res = await fetch(`https://nextjs-crud-git-main-tuhinkantipal01.vercel.app/api/topics?id=${id}`, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
