@@ -1,6 +1,6 @@
 const useTopics = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/topics",{
+    const res = await fetch("https://nextjs-crud-swart.vercel.app/api/topics",{
         cache:"no-cache",
     });
 
