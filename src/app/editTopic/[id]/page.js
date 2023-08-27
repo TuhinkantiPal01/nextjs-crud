@@ -20,6 +20,7 @@ const getTopicById = async(id) => {
 
 const EditTopicPage =async({params}) => {
   const {id} = params;
+  console.log(id);
   
 
   const topic = await getTopicById(id);
